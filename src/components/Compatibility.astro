@@ -1,0 +1,85 @@
+---
+---
+
+<section id="compatibility" class="mx-auto max-w-6xl px-6 py-20">
+  <h2 class="text-center text-3xl font-bold md:text-4xl">Compatibility</h2>
+
+  <!-- Platform support -->
+  <div class="mt-12">
+    <h3 class="mb-4 text-xl font-semibold">Platform support</h3>
+    <div class="overflow-x-auto rounded-lg border border-[var(--color-border)]">
+      <table class="w-full text-left text-sm">
+        <thead class="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+          <tr>
+            <th class="px-6 py-3 font-medium">OS</th>
+            <th class="px-6 py-3 font-medium">Architecture</th>
+            <th class="px-6 py-3 font-medium">Format</th>
+          </tr>
+        </thead>
+        <tbody class="text-[var(--color-text-secondary)]">
+          <tr class="border-b border-[var(--color-border)]">
+            <td class="px-6 py-3">Windows</td>
+            <td class="px-6 py-3">x86_64</td>
+            <td class="px-6 py-3"><code>.msi</code> installer</td>
+          </tr>
+          <tr class="border-b border-[var(--color-border)]">
+            <td class="px-6 py-3">macOS</td>
+            <td class="px-6 py-3">Apple Silicon (aarch64)</td>
+            <td class="px-6 py-3"><code>.dmg</code> disk image</td>
+          </tr>
+          <tr class="border-b border-[var(--color-border)]">
+            <td class="px-6 py-3">macOS</td>
+            <td class="px-6 py-3">Intel (x86_64)</td>
+            <td class="px-6 py-3"><code>.dmg</code> disk image</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-3">Linux</td>
+            <td class="px-6 py-3">x86_64</td>
+            <td class="px-6 py-3"><code>.AppImage</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MedusaJS compatibility -->
+  <div class="mt-12">
+    <h3 class="mb-4 text-xl font-semibold">MedusaJS compatibility</h3>
+    <div class="overflow-x-auto rounded-lg border border-[var(--color-border)]">
+      <table class="w-full text-left text-sm">
+        <thead class="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+          <tr>
+            <th class="px-6 py-3 font-medium">Capability</th>
+            <th class="px-6 py-3 font-medium text-center">Vanilla Medusa</th>
+            <th class="px-6 py-3 font-medium text-center">Medusa + POS plugin</th>
+          </tr>
+        </thead>
+        <tbody class="text-[var(--color-text-secondary)]">
+          <tr class="border-b border-[var(--color-border)]">
+            <td class="px-6 py-3">Add product to cart</td>
+            <td class="px-6 py-3 text-center text-green-400">Yes</td>
+            <td class="px-6 py-3 text-center text-green-400">Yes</td>
+          </tr>
+          <tr class="border-b border-[var(--color-border)]">
+            <td class="px-6 py-3">Reliable inventory check before adding</td>
+            <td class="px-6 py-3 text-center text-red-400">No</td>
+            <td class="px-6 py-3 text-center text-green-400">Yes</td>
+          </tr>
+          <tr class="border-b border-[var(--color-border)]">
+            <td class="px-6 py-3">Context-aware computed variant price</td>
+            <td class="px-6 py-3 text-center text-red-400">No</td>
+            <td class="px-6 py-3 text-center text-green-400">Yes</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-3">Inventory kit availability checks</td>
+            <td class="px-6 py-3 text-center text-red-400">No</td>
+            <td class="px-6 py-3 text-center text-green-400">Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-sm text-[var(--color-text-secondary)]">
+      Tested with <code class="rounded bg-[var(--color-surface)] px-1.5 py-0.5 text-xs">@medusajs/js-sdk@2.13.3</code> against Medusa Admin API v2.13.x.
+    </p>
+  </div>
+</section>

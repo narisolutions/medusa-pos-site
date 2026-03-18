@@ -1,0 +1,95 @@
+---
+const releasesUrl = 'https://github.com/narisolutions/medusa-pos/releases/latest';
+
+const platforms = [
+  { name: 'Windows x64', format: '.msi', icon: 'windows', pattern: '.msi' },
+  { name: 'macOS Apple Silicon', format: '.dmg', icon: 'apple', pattern: 'aarch64.dmg' },
+  { name: 'macOS Intel', format: '.dmg', icon: 'apple', pattern: 'x64.dmg' },
+  { name: 'Linux x64', format: '.AppImage', icon: 'linux', pattern: '.AppImage' },
+];
+---
+
+<section id="downloads" class="mx-auto max-w-6xl px-6 py-20">
+  <h2 class="text-center text-3xl font-bold md:text-4xl">Downloads</h2>
+  <p class="mx-auto mt-4 max-w-2xl text-center text-[var(--color-text-secondary)]">
+    Prebuilt binaries for every major platform. All builds include signed updater artifacts for automatic updates.
+  </p>
+
+  <p class="mt-4 text-center">
+    <span id="version-badge" class="inline-block rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-text-secondary)]">
+      Loading latest version...
+    </span>
+  </p>
+
+  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {platforms.map((p) => (
+      <a
+        href={releasesUrl}
+        data-pattern={p.pattern}
+        class="download-btn flex flex-col items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-center transition-colors hover:border-[var(--color-accent)]/40"
+      >
+        {p.icon === 'windows' && (
+          <svg class="h-8 w-8 text-[var(--color-text-primary)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+          </svg>
+        )}
+        {p.icon === 'apple' && (
+          <svg class="h-8 w-8 text-[var(--color-text-primary)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11Z"/>
+          </svg>
+        )}
+        {p.icon === 'linux' && (
+          <svg class="h-8 w-8 text-[var(--color-text-primary)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 0 0-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.368 1.884 1.43.868.07 1.726-.36 2.23-.96.254-.31.41-.664.414-1.04.003-.26-.066-.524-.198-.79-.257-.51-.728-.86-1.26-1.12-.345-.165-.718-.286-1.07-.474a6.27 6.27 0 0 1-.752-.517l-.202-.175a.063.063 0 0 0-.02-.027c-.146-.149-.308-.296-.404-.467-.058-.105-.091-.199-.104-.334a2.413 2.413 0 0 0-.015-.667c-.04-.263-.08-.471.04-.637l.013-.014c.063-.077.147-.127.22-.178.39-.276.704-.651.878-1.146.236-.674.096-1.417-.254-2.167-.197-.421-.477-.816-.76-1.142-.144-.166-.281-.312-.416-.459-.135-.146-.264-.327-.354-.465-.091-.137-.136-.27-.136-.532v-.003c0-.317.039-.636.044-.854.002-.33-.045-.648-.151-.878-.119-.254-.308-.395-.547-.449a.672.672 0 0 0-.104-.011c.1-.525.151-1.058.151-1.565 0-.16-.003-.318-.014-.473-.092-1.59-.66-3.033-1.397-4.175-.487-.753-1.074-1.37-1.694-1.817C14.244.353 13.382 0 12.504 0"/>
+          </svg>
+        )}
+        <span class="font-medium">{p.name}</span>
+        <span class="text-xs text-[var(--color-text-secondary)]">{p.format}</span>
+      </a>
+    ))}
+  </div>
+
+  <div class="mt-8 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] p-6 text-sm text-[var(--color-text-secondary)]">
+    <h3 class="mb-3 font-semibold text-[var(--color-text-primary)]">Code signing notice</h3>
+    <ul class="space-y-2">
+      <li>
+        <strong class="text-[var(--color-text-primary)]">Windows</strong> — The MSI installer is not code-signed. SmartScreen will show an "Unknown Publisher" warning. Click <em>More info</em> then <em>Run anyway</em>.
+      </li>
+      <li>
+        <strong class="text-[var(--color-text-primary)]">macOS</strong> — The DMG is ad-hoc signed but not notarized. Right-click the app and select <em>Open</em>, or run <code class="rounded bg-[var(--color-bg)] px-1.5 py-0.5 text-xs">xattr -cr /Applications/Medusa\ POS.app</code>.
+      </li>
+      <li>
+        <strong class="text-[var(--color-text-primary)]">Linux</strong> — No code signing required. Make the AppImage executable with <code class="rounded bg-[var(--color-bg)] px-1.5 py-0.5 text-xs">chmod +x</code> and run it.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  const API_URL = 'https://api.github.com/repos/narisolutions/medusa-pos/releases/latest';
+
+  async function upgradeDownloadLinks() {
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) return;
+      const data = await res.json();
+
+      const badge = document.getElementById('version-badge');
+      if (badge) badge.textContent = data.tag_name;
+
+      const buttons = document.querySelectorAll<HTMLAnchorElement>('.download-btn');
+      for (const btn of buttons) {
+        const pattern = btn.dataset.pattern;
+        if (!pattern) continue;
+        const asset = data.assets.find((a: { name: string }) => a.name.endsWith(pattern));
+        if (asset) {
+          btn.href = asset.browser_download_url;
+        }
+      }
+    } catch {
+      // Silent failure — static links remain
+    }
+  }
+
+  upgradeDownloadLinks();
+</script>
