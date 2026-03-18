@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://narisolutions.github.io/medusa-pos-site/sitemap.xml
