@@ -3,8 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://narisolutions.github.io',
-  base: '/medusa-pos-site/',
+  site: 'https://pos.nari.ge',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
