@@ -1,27 +1,45 @@
 ---
+interface Props {
+  variant?: 'default' | 'blog';
+}
+
+const { variant = 'default' } = Astro.props;
+const isBlog = variant === 'blog';
 const base = import.meta.env.BASE_URL;
 ---
 
 <header class="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur-sm">
-  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href={base} class="flex items-center gap-3">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+    <a href={base} class="flex items-center gap-2.5 sm:gap-3">
       <img src={`${base}logo.svg`} alt="Medusa POS" class="h-8 w-8" />
-      <span class="text-lg font-semibold">Medusa POS</span>
+      <span class="text-base leading-tight font-semibold sm:text-lg">Medusa POS</span>
     </a>
-    <div class="flex items-center gap-6 text-sm text-[var(--color-text-secondary)]">
-      <a href="#features" class="transition-colors hover:text-[var(--color-text-primary)]">Features</a>
-      <a href="#downloads" class="transition-colors hover:text-[var(--color-text-primary)]">Downloads</a>
-      <a
-        href="https://github.com/narisolutions/medusa-pos"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-colors hover:text-[var(--color-text-primary)]"
-      >
-        GitHub
-        <svg class="ml-1 inline-block h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
-        </svg>
-      </a>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="hidden items-center gap-6 text-sm text-[var(--color-text-secondary)] md:flex">
+        {!isBlog && (
+          <>
+            <a href="#features" class="transition-colors hover:text-[var(--color-text-primary)]">Features</a>
+            <a href="#downloads" class="transition-colors hover:text-[var(--color-text-primary)]">Downloads</a>
+          </>
+        )}
+        <a
+          href={`${base}blog/overview`}
+          class="transition-colors hover:text-[var(--color-text-primary)]"
+        >
+          Blog
+        </a>
+        <a
+          href="https://github.com/narisolutions/medusa-pos"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-colors hover:text-[var(--color-text-primary)]"
+        >
+          GitHub
+          <svg class="ml-1 inline-block h-3 w-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+          </svg>
+        </a>
+      </div>
       <button
         id="theme-toggle"
         aria-label="Switch to light theme"
@@ -38,13 +56,46 @@ const base = import.meta.env.BASE_URL;
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </button>
+      <button
+        id="nav-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        class="rounded-md p-1.5 transition-colors hover:text-[var(--color-text-primary)] md:hidden"
+      >
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <div id="mobile-nav" class="hidden border-t border-[var(--color-border)] md:hidden">
+    <div class="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-3 text-sm text-[var(--color-text-secondary)]">
+      {!isBlog && (
+        <>
+          <a href="#features" class="rounded-md px-2 py-2 transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]">Features</a>
+          <a href="#downloads" class="rounded-md px-2 py-2 transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]">Downloads</a>
+        </>
+      )}
+      <a href={`${base}blog/overview`} class="rounded-md px-2 py-2 transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]">Blog</a>
+      <a
+        href="https://github.com/narisolutions/medusa-pos"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-md px-2 py-2 transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-text-primary)]"
+      >
+        GitHub
+      </a>
+    </div>
+  </div>
 </header>
 
 <script is:inline>
   (function () {
     var btn = document.getElementById('theme-toggle');
+    var navToggle = document.getElementById('nav-toggle');
+    var mobileNav = document.getElementById('mobile-nav');
     if (!btn) return;
 
     function updateToggle(theme) {
@@ -63,5 +114,30 @@ const base = import.meta.env.BASE_URL;
       if (meta) meta.setAttribute('content', next === 'dark' ? '#09090b' : '#ffffff');
       updateToggle(next);
     });
+
+    function closeNav() {
+      if (!mobileNav || !navToggle) return;
+      mobileNav.classList.add('hidden');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    function toggleNav() {
+      if (!mobileNav || !navToggle) return;
+      var isHidden = mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden');
+      navToggle.setAttribute('aria-expanded', String(isHidden));
+      navToggle.setAttribute('aria-label', isHidden ? 'Close navigation menu' : 'Open navigation menu');
+    }
+
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener('click', toggleNav);
+      mobileNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeNav);
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) closeNav();
+      });
+    }
   })();
 </script>
