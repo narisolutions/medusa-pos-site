@@ -93,8 +93,7 @@ html[data-theme="light"] .theme-icon-moon { display: none; }
    This avoids overriding the header/CTA button link styles on the blog page. */
 .editorial-wrapper .editorial-content a {
   color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .editorial-wrapper .editorial-content a:hover {

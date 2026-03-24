@@ -1,8 +1,13 @@
 ---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
 ---
 
-<footer class="border-t border-[var(--color-border)] py-12">
-  <div class="mx-auto max-w-6xl px-6">
+<footer class="border-t border-[var(--color-border)] h-56">
+  <div class="mx-auto flex h-full max-w-6xl flex-col justify-center px-6">
     <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
       <div class="text-sm text-[var(--color-text-secondary)]">
         Built by <a href="https://nari.ge" target="_blank" rel="noopener noreferrer" class="text-[var(--color-text-primary)] underline underline-offset-4 transition-colors hover:text-[var(--color-accent)]">Nari Solutions</a>
