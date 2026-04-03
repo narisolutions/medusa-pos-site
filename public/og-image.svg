@@ -1,6 +1,6 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="45%" r="50%">
+    <radialGradient id="glow" cx="50%" cy="43%" r="50%">
       <stop offset="0%" stop-color="#6d28d9" stop-opacity="0.3"/>
       <stop offset="50%" stop-color="#6d28d9" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
@@ -47,26 +47,40 @@
   <!-- Accent line top -->
   <rect x="0" y="0" width="1200" height="3" fill="url(#line-grad)"/>
 
-  <!-- Logo hexagon -->
-  <g transform="translate(536, 160) scale(0.14)">
+  <!--
+    Content block vertically centered in 630px (center = 315).
+    Block spans y=181 to y=450 (height=269px, center=315.5 ≈ 315).
+    Gaps expanded ~12px each for more breathing room.
+
+    Logo path local center: (209, 209). At scale=0.15, offset = 209*0.15 = 31.35.
+    To render logo center at (600, 209):
+      translate_x = 600 - 31.35 = 568.65 → 569
+      translate_y = 209 - 31.35 = 177.65 → 178
+    Logo bounds on screen: top ≈ 181, bottom ≈ 239 (58px tall)
+  -->
+  <g transform="translate(569, 178) scale(0.15)">
     <path d="M339.515 81.9665L254.329 32.9564C226.457 16.8812 192.304 16.8812 164.431 32.9564L78.8524 81.9665C51.3731 98.0412 34.1003 127.839 34.1003 159.598V258.01C34.1003 290.161 51.3731 319.566 78.8524 335.642L164.039 385.043C191.911 401.119 226.064 401.119 253.936 385.043L339.122 335.642C366.994 319.566 383.875 290.161 383.875 258.01V159.598C384.66 127.839 367.387 98.0412 339.515 81.9665ZM209.184 296.434C160.899 296.434 121.642 257.225 121.642 209C121.642 160.774 160.899 121.566 209.184 121.566C257.469 121.566 297.118 160.774 297.118 209C297.118 257.225 257.862 296.434 209.184 296.434Z" fill="#6d28d9"/>
   </g>
 
-  <!-- Title -->
-  <text x="600" y="320" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="72" fill="white" letter-spacing="-2">
+  <!-- Title — baseline at y=324 (33px gap from logo bottom ~239, cap height ~52px) -->
+  <text x="600" y="324" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="72" fill="white" letter-spacing="-2">
     Medusa POS
   </text>
 
-  <!-- Divider -->
-  <rect x="540" y="345" width="120" height="2" rx="1" fill="#6d28d9" opacity="0.8"/>
+  <!-- Divider — centered at x=600 (x=540, width=120), 22px below title baseline -->
+  <rect x="540" y="346" width="120" height="2" rx="1" fill="#6d28d9" opacity="0.8"/>
 
-  <!-- Subtitle -->
-  <text x="600" y="390" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="400" font-size="26" fill="#a1a1aa" letter-spacing="1">
+  <!-- Subtitle — baseline at y=388 (20px gap from divider) -->
+  <text x="600" y="388" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="400" font-size="26" fill="#a1a1aa" letter-spacing="1">
     Point of Sale for MedusaJS
   </text>
 
-  <!-- Platform tags -->
-  <g transform="translate(420, 430)">
+  <!--
+    Platform tags: 3 tags × 100px + 2 gaps × 20px = 340px total width.
+    To center at x=600: translate_x = 600 - 340/2 = 430.
+    Tags top at y=420 (32px gap from subtitle baseline), height=30px, bottom=450.
+  -->
+  <g transform="translate(430, 420)">
     <rect x="0" y="0" width="100" height="30" rx="6" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.08" stroke-width="0.5"/>
     <text x="50" y="20" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#a1a1aa">Windows</text>
 
@@ -77,8 +91,8 @@
     <text x="290" y="20" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#a1a1aa">Linux</text>
   </g>
 
-  <!-- Bottom domain -->
-  <text x="600" y="570" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="500" font-size="16" fill="#6d28d9" opacity="0.7" letter-spacing="2">
+  <!-- Bottom domain — moved up from y=570 to y=545 for balanced bottom margin -->
+  <text x="600" y="545" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="500" font-size="16" fill="#6d28d9" opacity="0.7" letter-spacing="2">
     narisolutions.github.io
   </text>
 

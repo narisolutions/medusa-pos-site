@@ -1,8 +1,9 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
-import { blogPosts } from '../data/blog-posts';
+import { getBlogPostsNewestFirst } from '../data/blog-posts';
 
 export function GET(context: APIContext) {
+  const blogPosts = getBlogPostsNewestFirst();
   return rss({
     title: 'Medusa POS Blog',
     description:

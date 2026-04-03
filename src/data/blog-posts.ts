@@ -9,6 +9,7 @@ export interface BlogPost {
   wordCount: number;
 }
 
+/** Chronological order (oldest first). Used for prev/next navigation between posts. */
 export const blogPosts: BlogPost[] = [
   {
     slug: 'introducing-medusa-pos',
@@ -26,13 +27,18 @@ export const blogPosts: BlogPost[] = [
     title: 'Getting Started with Medusa POS',
     description:
       'A practical setup guide: install, connect your Medusa backend, configure printers, and run your first checkout flow.',
-    publishedAt: '2026-03-24',
-    publishedLabel: 'Mar 24, 2026',
-    modifiedAt: '2026-03-24',
+    publishedAt: '2026-03-25',
+    publishedLabel: 'Mar 25, 2026',
+    modifiedAt: '2026-03-25',
     readingTime: '7 min read',
     wordCount: 1400,
   },
 ];
+
+/** Newest first — for blog index, RSS, etc. */
+export function getBlogPostsNewestFirst(): BlogPost[] {
+  return [...blogPosts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+}
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);

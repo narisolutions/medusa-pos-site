@@ -3,9 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import '../../styles/global.css';
-import { blogPosts } from '../../data/blog-posts';
+import { getBlogPostsNewestFirst } from '../../data/blog-posts';
 
 const base = import.meta.env.BASE_URL;
+const blogPosts = getBlogPostsNewestFirst();
 ---
 
 <Layout
