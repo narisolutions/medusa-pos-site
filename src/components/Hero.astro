@@ -1,7 +1,15 @@
 ---
 const base = import.meta.env.BASE_URL;
-const darkShots = [1, 2, 3, 4, 5].map(n => ({ src: `${base}screenshots/dark${n}.png`, alt: `Medusa POS dark screenshot ${n}` }));
-const lightShots = [1, 2, 3, 4, 5].map(n => ({ src: `${base}screenshots/light${n}.png`, alt: `Medusa POS light screenshot ${n}` }));
+const shots = [
+  { name: 'checkout', alt: 'Checkout with quick keys, the cart and the payment column' },
+  { name: 'payment', alt: 'Taking a cash payment on the keypad, with the change shown' },
+  { name: 'catalog', alt: 'Browsing the catalog by category from the checkout' },
+  { name: 'orders', alt: 'The orders list with payment and fulfilment status' },
+  { name: 'order', alt: 'An order with its items, totals, payment and history' },
+  { name: 'receipt-preview', alt: 'The receipt preview, exactly as the printer prints it' },
+];
+const darkShots = shots.map((s) => ({ src: `${base}screenshots/${s.name}-dark.png`, alt: s.alt }));
+const lightShots = shots.map((s) => ({ src: `${base}screenshots/${s.name}-light.png`, alt: s.alt }));
 ---
 
 <section class="mx-auto max-w-6xl px-6 py-24 text-center md:py-32">
