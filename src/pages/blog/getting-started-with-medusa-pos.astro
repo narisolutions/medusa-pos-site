@@ -51,21 +51,21 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
         <h2>What you need</h2>
         <p><strong>To get started, you will need:</strong></p>
         <ul>
-          <li>A Windows, macOS, or Linux computer at the checkout counter</li>
+          <li>A Windows, macOS, or Linux computer at the checkout counter — a touchscreen is ideal</li>
           <li>
-            A running <a href="https://medusajs.com/">Medusa</a> store (v2.15.x) with products and a sales channel set up
+            A running <a href="https://medusajs.com/">Medusa</a> store (v2.21.x) with products and a sales channel set up
           </li>
           <li>Your Medusa Admin login (email and password)</li>
         </ul>
         <p><strong>Optional hardware (recommended for a full retail setup):</strong></p>
         <ul>
           <li>
-            A <strong>network thermal printer</strong> - an 80 mm receipt printer connected to your Wi-Fi or Ethernet
-            network (for example, Epson TM-series or BIXOLON models)
+            A <strong>thermal receipt printer</strong> - an 80 mm or 57 mm printer on your network (Wi-Fi or Ethernet), on USB,
+            or added to your computer as a system printer (for example, Epson TM-series or BIXOLON models)
           </li>
           <li>
-            A <strong>USB barcode scanner</strong> - any standard scanner that plugs into a USB port and acts like a
-            keyboard
+            A <strong>barcode scanner</strong> - any standard USB scanner that types like a keyboard, or one on a serial
+            (COM) port
           </li>
           <li>
             A <strong>cash drawer</strong> - connected to your thermal printer via the standard RJ-11 cable
@@ -83,18 +83,23 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
           <li>
             <strong>Enter your store address</strong> - on first launch, the app asks for your Medusa backend URL
             (for example, <code class="rounded bg-[var(--color-bg)] px-1.5 py-0.5 text-xs">https://admin.mystore.com</code>). Type it
-            in and save. You can add more stores later under Settings.
+            in and save. You can add more stores later from the store box on the sign-in screen.
           </li>
           <li>
             <strong>Sign in</strong> with your Medusa Admin email and password.
           </li>
           <li>
             <strong>Add your printer</strong> - open <strong>Settings -> Printers</strong>, tap <strong>Add printer</strong>,
-            enter the printer's IP address, and run a test print to confirm it is working.
+            enter the printer's address, and run a test print. The printer then shows its live status - ready, out of
+            paper or cover open - on the Printers page and in the top bar.
           </li>
           <li>
             <strong>Test the cash drawer</strong> - from the same printer settings screen, tap <strong>Test drawer</strong>.
             If a drawer is connected to the printer, it should pop open.
+          </li>
+          <li>
+            <strong>Check your payment methods</strong> - under <strong>Settings -> Store</strong>, each payment method from
+            your Medusa backend gets a name and an icon at the till: cash, card, bank transfer and more.
           </li>
           <li>
             <strong>Start selling</strong> - go to the Checkout screen, search or scan your first product, and you are ready.
@@ -134,11 +139,11 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
         <ol>
           <li>
             <strong>Pick your store and sign in.</strong> If you have more than one location, choose the right one
-            from the dropdown, then enter your credentials.
+            from the store box, then enter your credentials.
           </li>
           <li>
             <strong>Find and add products.</strong> On the Checkout screen, scan the barcode on the product packaging
-            or type the name in the search bar. Tap to add each item to the cart.
+            or type the name in the search bar. You can also browse the catalog, or tap a quick key for your best sellers.
           </li>
         </ol>
 
@@ -157,10 +162,12 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
 
         <ol start="3">
           <li>
-            <strong>Review the cart.</strong> Adjust quantities or apply a discount if needed. The order total updates immediately.
+            <strong>Review the cart.</strong> Change a quantity with the large - and + buttons or apply a discount. Removed
+            something by mistake? Tap <strong>Undo</strong>.
           </li>
           <li>
-            <strong>Tap Charge.</strong> A payment window opens. Enter the cash received - the change is calculated for you - then confirm.
+            <strong>Tap Payment.</strong> Pick the payment method first. For cash, enter the amount received on the keypad
+            and the change is shown in large numbers; for card or bank transfer, confirm once the payment has gone through.
           </li>
         </ol>
 
@@ -179,7 +186,8 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
 
         <ol start="5">
           <li>
-            <strong>Receipt prints; drawer opens if configured.</strong> The receipt prints right after payment. If a cash drawer is connected and enabled in your printer settings, it opens at the same time.
+            <strong>Receipt prints; drawer opens if configured.</strong> The receipt prints right after payment, and a
+            success screen shows the change to hand back. Tap <strong>New sale</strong>, or simply scan the next item.
           </li>
           <li>
             <strong>Order saved.</strong> The completed sale appears in your Medusa order history immediately.
@@ -191,11 +199,12 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
         <h2>Checking past orders</h2>
         <p>
           Every completed transaction is stored and searchable. Tap <strong>Orders</strong> in the sidebar to browse your
-          sales history, use the search bar or filter chips to find a specific order, and tap any row to see the
-          full detail - items, totals, and payment method.
+          sales history. Search, or tap a quick filter such as <strong>Unpaid</strong> or <strong>To fulfil</strong>, and
+          tap any row to see the full detail - items, totals, payment and history.
         </p>
         <p>
-          You can reprint a receipt from the order detail screen at any time.
+          From the order page you can preview and reprint the receipt, save it as a PDF, take a payment later, refund,
+          or handle a return or exchange.
         </p>
 
         <div data-theme-view="light">
@@ -230,16 +239,25 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
         <p>Everything you need to configure lives under <strong>Settings</strong>:</p>
         <ul>
           <li>
-            <strong>Store</strong> - add, rename, or remove Medusa backend addresses. Multi-location shops can add each store here and switch between them at login.
+            <strong>Printers</strong> - add network, USB or system printers, mark a default, run a test print and test the
+            cash drawer. Each printer shows its live status.
           </li>
           <li>
-            <strong>Printers</strong> - add a printer by entering its IP address and port. Mark a default, run a test print, and test the cash drawer trigger from the same screen. Network printers (Wi-Fi or Ethernet) are the most reliable option.
+            <strong>Scanner</strong> - choose a keyboard-style or serial scanner, and scan anything to check it works.
           </li>
           <li>
-            <strong>Preferences</strong> - choose your display theme (Light, Dark, or System), currency symbol, and date format.
+            <strong>Connection</strong> - the sales channel and stock location this till sells from.
           </li>
           <li>
-            <strong>Branding</strong> - set your company name, address, phone number, and upload a logo. These appear on every printed receipt.
+            <strong>Store</strong> - your name, address, phone number and logo (printed on every receipt), the payment
+            methods, and your bank details for bank transfers.
+          </li>
+          <li>
+            <strong>Quick keys</strong> - pin up to eight products as one-tap buttons above the cart.
+          </li>
+          <li>
+            <strong>Preferences</strong> - language, theme (Light, Dark or System), display size, sounds, currency and date
+            format, and the cash register.
           </li>
         </ul>
 
@@ -274,24 +292,29 @@ const articleUrl = `${siteUrl}/blog/${slug}`;
         <h2>FAQ</h2>
         <p><strong>Why does Windows or macOS show a warning when I install the app?</strong></p>
         <p>
-          The open-source release is not signed with a paid commercial certificate, so your operating system shows
-          a security prompt the first time you run it. If you downloaded the file from <a href="https://pos.nari.ge/">pos.nari.ge</a>, you can safely proceed. Businesses deploying to many machines can apply their own code-signing certificate to the build.
+          The Windows installer is code-signed, but SmartScreen may still ask once while the signature builds its
+          reputation. The macOS app is not notarized yet, so macOS asks too. If you downloaded the file from
+          <a href="https://pos.nari.ge/">pos.nari.ge</a>, you can safely proceed.
         </p>
         <p><strong>What printers are compatible?</strong></p>
         <p>
-          Any 80 mm thermal receipt printer that accepts connections over a network (Wi-Fi or Ethernet) on port 9100 - for example, Epson TM-series or BIXOLON printers. <em>Thermal printer = the till-roll type that prints receipts without ink cartridges.</em> USB and Bluetooth connections are experimental and may not work on all systems yet.
+          Any 80 mm or 57 mm thermal receipt printer that speaks ESC/POS - on your network (port 9100), on USB, or set up
+          on your computer as a system printer. For example, Epson TM-series or BIXOLON printers. <em>Thermal printer =
+          the till-roll type that prints receipts without ink cartridges.</em>
         </p>
         <p><strong>Is barcode scanning required?</strong></p>
         <p>
-          No - it is completely optional. Any product can be found and added using the search bar. If you plug in a USB barcode scanner, it is detected automatically. Full barcode-to-product lookup additionally requires the optional <a href="https://github.com/narisolutions/medusa-plugins" target="_blank" rel="noopener noreferrer">@narisolutions/medusa-plugin-pos</a> companion plugin installed on your Medusa server.
+          No - it is completely optional. Any product can be found and added using the search bar. A USB scanner that types like a keyboard works straight away; a serial (COM) scanner is chosen under Settings -> Scanner. Full barcode-to-product lookup additionally requires the optional <a href="https://github.com/narisolutions/medusa-plugins" target="_blank" rel="noopener noreferrer">@narisolutions/medusa-plugin-pos</a> companion plugin installed on your Medusa server.
         </p>
         <p><strong>Does the cash drawer always open after a sale?</strong></p>
         <p>
           It opens when configured correctly: the cash drawer must be connected to your thermal printer via the standard cable, and the printer must be set up in <strong>Settings -> Printers</strong>. When those conditions are met, the app sends the open command to the printer at the end of a completed sale.
         </p>
-        <p><strong>Can I use Medusa POS on a tablet or phone?</strong></p>
+        <p><strong>Does it work on a touchscreen?</strong></p>
         <p>
-          An experimental Android build is available at <a href="https://pos.nari.ge/">pos.nari.ge</a>. The desktop version (Windows, macOS, Linux) is the most stable and recommended for everyday retail use.
+          Yes - it is designed for one. Every button is large enough for a finger, amounts are entered on a keypad, and a
+          display size setting makes everything bigger or smaller to suit your screen. It runs on Windows, macOS and Linux
+          computers, including touchscreen all-in-one tills.
         </p>
 
         <section class="mt-12">

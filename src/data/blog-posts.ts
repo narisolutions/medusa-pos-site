@@ -29,9 +29,21 @@ export const blogPosts: BlogPost[] = [
       'A practical setup guide: install, connect your Medusa backend, configure printers, and run your first checkout flow.',
     publishedAt: '2026-03-25',
     publishedLabel: 'Mar 25, 2026',
-    modifiedAt: '2026-03-25',
+    modifiedAt: '2026-10-13',
     readingTime: '7 min read',
     wordCount: 1400,
+  },
+  {
+    slug: 'whats-new-in-medusa-pos',
+    title: "What's new in Medusa POS",
+    description:
+      'A touch-first redesign, every way to pay, returns and exchanges, parked sales, a cash register, quick keys, receipt preview and live printer status.',
+    // Set to the release day when this goes live with the next medusa-pos release.
+    publishedAt: '2026-10-13',
+    publishedLabel: 'Oct 13, 2026',
+    modifiedAt: '2026-10-13',
+    readingTime: '4 min read',
+    wordCount: 660,
   },
 ];
 

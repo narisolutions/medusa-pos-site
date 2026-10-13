@@ -1,0 +1,394 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+import { getPostBySlug, getAdjacentPosts } from '../../data/blog-posts';
+
+const base = import.meta.env.BASE_URL;
+const siteUrl = 'https://pos.nari.ge';
+const slug = 'whats-new-in-medusa-pos';
+const post = getPostBySlug(slug)!;
+const { prev, next } = getAdjacentPosts(slug);
+const publishedDateISO = post.publishedAt;
+const modifiedDateISO = post.modifiedAt;
+const publishedLabel = post.publishedLabel;
+const articleUrl = `${siteUrl}/blog/${slug}`;
+---
+
+<Layout
+  title="What's new in Medusa POS"
+  description="A touch-first redesign, every way to pay, returns and exchanges, parked sales, a cash register, quick keys, receipt preview and live printer status."
+  canonical={articleUrl}
+  ogType="article"
+  publishedTime={publishedDateISO}
+  modifiedTime={modifiedDateISO}
+>
+  <Header variant="blog" />
+
+  <main>
+    <article class="editorial-wrapper mx-auto max-w-3xl px-6 py-11 text-left">
+      <header class="mb-12 flex flex-col gap-4">
+        <a
+          href={`${base}blog`}
+          class="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] max-w-40 px-4 py-2 text-sm text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-text-secondary)]"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to blog
+        </a>
+      </header>
+
+      <div class="editorial-content">
+        <h1>What's new in Medusa POS</h1>
+        <p class="mb-5 text-sm text-[var(--color-text-secondary)]">
+          <time datetime={publishedDateISO}>Published {publishedLabel}</time>
+          <span class="mx-2">·</span>
+          <span>{post.readingTime}</span>
+        </p>
+
+        <p>
+          Since our first release in June, Medusa POS has grown from a simple checkout into a till that handles a whole
+          shop day: every way to pay, returns and exchanges, parked sales and a cash register. And the newest release is
+          redesigned from the ground up for touchscreens. Here is what changed, and what it means at the counter.
+        </p>
+
+        <h2>Made for a touchscreen</h2>
+        <p>
+          Every button, field and list row is now big enough for a finger, and amounts are typed on a large keypad rather
+          than the on-screen keyboard. Quantities have large - and + buttons you can hold to count up. Removed an item or
+          cleared the cart by mistake? Tap <strong>Undo</strong>. State is always shown with an icon and a word, not colour
+          alone, so it reads at arm's length in a bright shop.
+        </p>
+        <ul>
+          <li><strong>Display size</strong> - make everything bigger or smaller to suit your screen and your staff.</li>
+          <li><strong>Sounds</strong> - a short beep for a scan, a distinct buzz for a failed one, a chime for a sale. Switch each on or off.</li>
+          <li><strong>Seven languages</strong> - English, Georgian, German, Spanish, French, Polish and Swedish.</li>
+        </ul>
+
+        <h2>Faster to ring up</h2>
+        <ul>
+          <li><strong>Quick keys</strong> - pin up to eight best sellers, or items without a barcode, as one-tap buttons above the cart.</li>
+          <li><strong>Catalog</strong> - browse products by category, with prices and stock, right from Checkout.</li>
+          <li><strong>Scanning that just works</strong> - keyboard-style and serial scanners, any code; the new line flashes so you see it land, and an unknown barcode tells you so right under the search bar.</li>
+        </ul>
+
+        <h2>Every way to pay</h2>
+        <p>
+          Payment methods now come from your Medusa store, so the till offers exactly the ones you set up: cash with change,
+          card terminals, <strong>bank transfer</strong> and more. A sale can also be delivered now and <strong>paid later</strong>;
+          unpaid receipts print your bank details so the customer knows where to pay. For markets without small coins,
+          <strong>cash rounding</strong> rounds the cash amount for you.
+        </p>
+        <p>
+          After payment, a success screen shows the change in large numbers, so you can count it out while looking at the
+          screen. Tap <strong>New sale</strong>, or just scan the next item.
+        </p>
+
+        <h2>Returns, exchanges and refunds</h2>
+        <p>
+          Customers come back. From the order page you can now take items back (back to stock or damaged), swap them for
+          something else, add items to a sale, and refund the difference to the right payment method - all settled at the
+          till, with a slip for the customer.
+        </p>
+
+        <h2>Park a sale</h2>
+        <p>
+          Put a sale aside, serve the next customer, and pick it up again later - on any till in the same shop. If stock
+          moved while it was parked, the till tells you before you take payment.
+        </p>
+
+        <h2>A cash register you can trust</h2>
+        <p>
+          Open the day with your float, record cash taken in or out, and close with a count. The till shows what the drawer
+          should hold next to what you counted, with <strong>Balanced</strong>, <strong>Over</strong> or <strong>Short</strong>
+          in clear colours, and prints a summary.
+        </p>
+
+        <h2>Receipts and printers</h2>
+        <ul>
+          <li><strong>Receipt preview</strong> - see exactly what the printer will print, logo included, before any paper moves; or save it as a PDF.</li>
+          <li><strong>Live printer status</strong> - "Out of paper" or "Cover open" shows in the top bar before a sale fails.</li>
+          <li><strong>Network, USB or system printers</strong>, 80 mm or 57 mm, and Georgian text prints correctly.</li>
+        </ul>
+
+        <h2>A till you can rely on</h2>
+        <p>
+          The top bar always shows whether the till is online and whether the register is open. A slow start no longer looks
+          like a failure, a dropped connection doesn't lose the sale, and your settings survive every update. Updates never
+          interrupt a sale: the till waits until it is finished.
+        </p>
+
+        <h2>How to update</h2>
+        <p>
+          If you already use Medusa POS, the app offers the update itself - install it when the cart is empty. New here?
+          Download it below and follow our <a href={`${base}blog/getting-started-with-medusa-pos`}>getting started guide</a>.
+        </p>
+
+        <section class="mt-12">
+          <h2>Where to go next</h2>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href={`${base}#downloads`}
+              class="rounded-lg bg-[var(--color-accent)] px-5 py-2.5 font-medium no-underline transition-colors hover:bg-[var(--color-accent-hover)]"
+              style="color: #fff;"
+            >
+              Download Medusa POS
+            </a>
+            <a
+              href="https://github.com/narisolutions/medusa-pos"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-lg border border-[var(--color-border)] px-5 py-2.5 font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-text-secondary)]"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </section>
+      </div>
+
+      {(prev || next) && (
+        <nav class="mt-14 grid grid-cols-1 gap-4 border-t border-[var(--color-border)] pt-8 sm:grid-cols-2" aria-label="Adjacent articles">
+          {prev ? (
+            <a
+              href={`${base}blog/${prev.slug}`}
+              class="group flex flex-col gap-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-colors hover:border-[var(--color-text-secondary)]"
+            >
+              <span class="text-xs font-medium uppercase tracking-wide text-[var(--color-text-secondary)]">Previous</span>
+              <span class="font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]">{prev.title}</span>
+              <span class="text-sm text-[var(--color-text-secondary)]">{prev.readingTime}</span>
+            </a>
+          ) : <div />}
+          {next ? (
+            <a
+              href={`${base}blog/${next.slug}`}
+              class="group flex flex-col gap-1 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 text-right transition-colors hover:border-[var(--color-text-secondary)]"
+            >
+              <span class="text-xs font-medium uppercase tracking-wide text-[var(--color-text-secondary)]">Next</span>
+              <span class="font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)]">{next.title}</span>
+              <span class="text-sm text-[var(--color-text-secondary)]">{next.readingTime}</span>
+            </a>
+          ) : <div />}
+        </nav>
+      )}
+
+      <!-- Lightbox (zoom on click for article screenshots) -->
+      <div id="blog-lightbox" class="lightbox is-hidden" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+        <div id="blog-lightbox-backdrop" class="lightbox-backdrop"></div>
+        <button id="blog-lightbox-close" class="lightbox-close" aria-label="Close">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="lightbox-inner">
+          <button id="blog-lightbox-prev" class="lightbox-nav" aria-label="Previous screenshot">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <img id="blog-lightbox-img" src="" alt="" class="lightbox-img" draggable="false" />
+          <button id="blog-lightbox-next" class="lightbox-nav" aria-label="Next screenshot">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+        <p id="blog-lightbox-counter" class="lightbox-counter"></p>
+      </div>
+
+      <style is:global>
+        .lightbox {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .lightbox.is-hidden { display: none; }
+        .lightbox-backdrop {
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.88);
+          cursor: pointer;
+        }
+        .lightbox-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #fff;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 150ms;
+        }
+        .lightbox-close:hover { background: rgba(255, 255, 255, 0.22); }
+        .lightbox-inner {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+        .lightbox-img {
+          max-width: calc(100vw - 160px);
+          max-height: calc(100vh - 96px);
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          border-radius: 8px;
+          box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+          display: block;
+        }
+        .lightbox-nav {
+          flex-shrink: 0;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #fff;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 150ms;
+        }
+        .lightbox-nav:hover { background: rgba(255, 255, 255, 0.22); }
+        .lightbox-counter {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 13px;
+          letter-spacing: 0.05em;
+          pointer-events: none;
+        }
+      </style>
+
+      <script is:inline>
+        (function () {
+          var lightbox = document.getElementById('blog-lightbox');
+          if (!lightbox) return;
+
+          var lightboxImg = document.getElementById('blog-lightbox-img');
+          var lightboxCounter = document.getElementById('blog-lightbox-counter');
+          var lightboxClose = document.getElementById('blog-lightbox-close');
+          var lightboxPrev = document.getElementById('blog-lightbox-prev');
+          var lightboxNext = document.getElementById('blog-lightbox-next');
+          var lightboxBackdrop = document.getElementById('blog-lightbox-backdrop');
+
+          var lbImages = [];
+          var lbIndex = 0;
+
+          function activeTheme() {
+            return document.documentElement.dataset.theme || 'dark';
+          }
+
+          function getImagesForActiveTheme() {
+            var theme = activeTheme();
+            return Array.from(
+              document.querySelectorAll(
+                '.editorial-content [data-theme-view="' +
+                  theme +
+                  '"] figure.editorial-figure img'
+              )
+            );
+          }
+
+          function updateLightbox() {
+            if (!lbImages.length) return;
+            var img = lbImages[lbIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || '';
+            lightboxCounter.textContent = lbIndex + 1 + ' / ' + lbImages.length;
+          }
+
+          function openLightbox(images, index) {
+            lbImages = images;
+            lbIndex = index;
+            updateLightbox();
+            lightbox.classList.remove('is-hidden');
+            document.body.style.overflow = 'hidden';
+          }
+
+          function closeLightbox() {
+            lightbox.classList.add('is-hidden');
+            document.body.style.overflow = '';
+          }
+
+          function lbNav(dir) {
+            if (!lbImages.length) return;
+            lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+            updateLightbox();
+          }
+
+          var allScreenshotImgs = Array.from(
+            document.querySelectorAll('.editorial-content [data-theme-view] figure.editorial-figure img')
+          );
+
+          allScreenshotImgs.forEach(function (img) {
+            img.addEventListener('click', function () {
+              var images = getImagesForActiveTheme();
+              if (!images.length) return;
+              var index = images.findIndex(function (x) {
+                return x.src === img.src;
+              });
+              openLightbox(images, index >= 0 ? index : 0);
+            });
+          });
+
+          if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+          if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+          if (lightboxPrev) lightboxPrev.addEventListener('click', function () { lbNav(-1); });
+          if (lightboxNext) lightboxNext.addEventListener('click', function () { lbNav(1); });
+
+          document.addEventListener('keydown', function (e) {
+            if (!lightbox || lightbox.classList.contains('is-hidden')) return;
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft') lbNav(-1);
+            else if (e.key === 'ArrowRight') lbNav(1);
+          });
+        })();
+      </script>
+
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: 'Getting Started with Medusa POS',
+          datePublished: publishedDateISO,
+          dateModified: modifiedDateISO,
+          description:
+            'A complete getting started guide for Medusa POS: setup requirements, installation, checkout flow, orders, settings, and FAQ.',
+          url: articleUrl,
+          mainEntityOfPage: articleUrl,
+          author: {
+            '@type': 'Organization',
+            name: 'Nari Solutions',
+            url: 'https://nari.ge',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Nari Solutions',
+          },
+        })}
+      />
+    </article>
+  </main>
+
+  <Footer compact />
+</Layout>

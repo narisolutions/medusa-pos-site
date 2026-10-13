@@ -1,48 +1,63 @@
 ---
 const features = [
   {
-    title: 'Checkout',
-    description: 'Barcode scanning, product search, and variant selection for fast checkout.',
+    title: 'Touch-first checkout',
+    description: 'Big buttons, a keypad for every amount and Undo for slips — made for a cashier standing at the counter.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7 2.25h10A1.75 1.75 0 0 1 18.75 4v16A1.75 1.75 0 0 1 17 21.75H7A1.75 1.75 0 0 1 5.25 20V4A1.75 1.75 0 0 1 7 2.25ZM10.5 18.75h3"/>`,
+  },
+  {
+    title: 'Scan, search or browse',
+    description: 'Scan with a USB or serial scanner, search the whole catalog, or browse it by category.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>`,
   },
   {
-    title: 'Cart & Payments',
-    description: 'Discounts, customer association, and cash payments with change calculation.',
+    title: 'Quick keys',
+    description: 'Pin up to eight best sellers or items without a barcode as one-tap buttons above the cart.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>`,
+  },
+  {
+    title: 'Every way to pay',
+    description: 'Cash with change, card terminals, bank transfer or pay later — using the payment methods set up in your Medusa store.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"/>`,
   },
   {
-    title: 'Receipt Printing',
-    description: 'Network, USB, and Bluetooth thermal printers. Supports custom logo printing.',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 .708a.75.75 0 0 1-.715.973H6.826a.75.75 0 0 1-.715-.973L6.34 18m11.32 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659"/>`,
+    title: 'Returns and exchanges',
+    description: 'Refund, take items back or swap them, and settle the difference right at the till.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>`,
   },
   {
-    title: 'Cash Drawer',
-    description: 'Automatic cash drawer trigger on completed payments.',
+    title: 'Park a sale',
+    description: 'Put a sale aside, serve the next customer and pick it up again on any till.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"/>`,
+  },
+  {
+    title: 'Cash register',
+    description: "Open and close the day, count the drawer and see over or short at a glance — with cash rounding where coins aren't used.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>`,
   },
   {
-    title: 'Order Management',
-    description: 'Order list, detail views, status tracking, and fulfillment workflows.',
+    title: 'Receipts you can preview',
+    description: 'Print to network, USB or system printers with your logo, see the exact receipt first, or save it as a PDF.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 .708a.75.75 0 0 1-.715.973H6.826a.75.75 0 0 1-.715-.973L6.34 18m11.32 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659"/>`,
+  },
+  {
+    title: 'Always know your till is ready',
+    description: 'The connection, the printer (paper out, cover open) and the register show their state in the top bar.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 0 1 1.06 0Z"/>`,
+  },
+  {
+    title: 'Orders at a glance',
+    description: 'Find any sale with search and one-tap filters like Unpaid or To fulfil, then reprint, refund or mark it picked up.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V19.5a2.25 2.25 0 0 0 2.25 2.25h.75"/>`,
   },
   {
-    title: 'Shipping',
-    description: 'Shipping labels and pickup confirmation for fulfilled orders.',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h3.038c.26 0 .515-.058.75-.168M3.375 14.25A1.125 1.125 0 0 0 2.25 15.375V16.5m14.77-2.418a4.5 4.5 0 0 0-.946-1.06l-2.042-1.737A4.5 4.5 0 0 0 11.1 10.1H8.25m8.77 3.65a4.5 4.5 0 0 1 .946 1.06M20.25 15.375V16.5a1.125 1.125 0 0 1-1.125 1.125h-.375"/>`,
+    title: 'Fits your shop',
+    description: 'Seven languages, light and dark themes, a display size for your screen and only the sounds you want.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/>`,
   },
   {
-    title: 'Multi-Store',
-    description: 'Configure multiple backend connections with per-store settings.',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36a1.06 1.06 0 0 1-1.06-1.06v-9.19a1.06 1.06 0 0 1 .353-.79l9.14-8.28a1.06 1.06 0 0 1 1.414 0l9.14 8.28a1.06 1.06 0 0 1 .354.79v9.19A1.06 1.06 0 0 1 21.64 21H13.5"/>`,
-  },
-  {
-    title: 'Localization',
-    description: 'Built-in support for multiple locales, currencies, and languages across the entire interface.',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"/>`,
-  },
-  {
-    title: 'Auto-Updates',
-    description: 'Built-in updater checks GitHub Releases and installs updates with one click.',
+    title: 'Many stores, always current',
+    description: 'Switch stores at sign-in, and get updates that wait until the sale is finished.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/>`,
   },
 ];
@@ -51,7 +66,7 @@ const features = [
 <section id="features" class="mx-auto max-w-6xl px-6 py-20">
   <h2 class="text-center text-3xl font-bold md:text-4xl">Features</h2>
   <p class="mx-auto mt-4 max-w-2xl text-center text-[var(--color-text-secondary)]">
-    Everything you need to run a point-of-sale workflow on top of MedusaJS.
+    Everything a shop needs at the counter, on top of the Medusa store you already run.
   </p>
 
   <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
