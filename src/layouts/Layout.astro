@@ -13,6 +13,7 @@ const base = import.meta.env.BASE_URL;
 const siteUrl = 'https://pos.nari.ge';
 const canonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 const ogImage = `${siteUrl}${base}og-image.png`;
+const isHome = Astro.url.pathname === base;
 ---
 
 <!doctype html>
@@ -68,25 +69,37 @@ const ogImage = `${siteUrl}${base}og-image.png`;
     <title>{title}</title>
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Medusa POS",
-      "description": description,
-      "url": siteUrl,
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Windows, macOS, Linux",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Nari Solutions",
-        "url": "https://nari.ge"
-      }
-    })} />
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Medusa POS",
+        "url": `${siteUrl}/`
+      })} />
+    )}
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Medusa POS",
+        "description": description,
+        "url": siteUrl,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "downloadUrl": "https://github.com/narisolutions/medusa-pos/releases/latest",
+        "screenshot": `${siteUrl}${base}screenshots/checkout-light.png`,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Nari Solutions",
+          "url": "https://nari.ge"
+        }
+      })} />
+    )}
   </head>
   <body>
     <slot />
