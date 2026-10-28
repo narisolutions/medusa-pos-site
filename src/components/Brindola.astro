@@ -1,10 +1,14 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="brindola" class="mx-auto max-w-6xl px-6 pb-20">
   <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:flex md:items-center md:justify-between md:gap-10">
     <div>
-      <h2 class="text-xl font-semibold">Not running a Medusa store?</h2>
+      <div class="flex items-center gap-3">
+        <img src={`${base}brindola.svg`} alt="" class="h-10 w-10 shrink-0" />
+        <h2 class="text-xl font-semibold">Not running a Medusa store?</h2>
+      </div>
       <p class="mt-3 max-w-2xl text-[var(--color-text-secondary)]">
         Medusa POS is a front end for an existing MedusaJS backend. If you want a point of sale that stands on its own,
         with products, stock, kitchen displays and reports on your own devices and no server to host, try Brindola
